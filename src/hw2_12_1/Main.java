@@ -9,10 +9,10 @@ import java.util.stream.Stream;
 public class Main {
     //task 1
     public static <T> void findMinMax(
-            Stream<? super T> stream,
+            Stream<? extends T> stream,
             Comparator<? super T> order,
             BiConsumer<? super T, ? super T> minMaxConsumer) {
-        List<T> list = (List<T>) stream.sorted().collect(Collectors.toList());
+        List<T> list = (List<T>) stream.sorted(order).collect(Collectors.toList());
         if (list.size() == 0) {
             T min = null;
             T max = null;
