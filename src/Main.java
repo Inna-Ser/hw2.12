@@ -4,6 +4,7 @@ import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+
 public class Main {
     //task 1
     public static <T> void findMinMax(
