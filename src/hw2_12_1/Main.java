@@ -1,9 +1,10 @@
+package hw2_12_1;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 
 public class Main {
     //task 1
@@ -37,3 +38,4 @@ public class Main {
         System.out.println(count);
     }
 }
+
