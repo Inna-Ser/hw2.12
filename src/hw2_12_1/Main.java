@@ -9,18 +9,19 @@ import java.util.stream.Stream;
 public class Main {
     //task 1
     public static <T> void findMinMax(
-            Stream<? super T> stream,
+            Stream<? extends T> stream,
             Comparator<? super T> order,
             BiConsumer<? super T, ? super T> minMaxConsumer) {
-        List<T> list = (List<T>) stream.sorted().collect(Collectors.toList());
+        List<T> list = (List<T>) stream.sorted(order).collect(Collectors.toList());
         if (list.size() == 0) {
             T min = null;
             T max = null;
-        }
+            minMaxConsumer.accept(min, max);
+        } else
         minMaxConsumer.accept(list.get(0), list.get(list.size() - 1));
     }
     public static void main(String[] args) {
-        Stream<Integer> stream = Stream.of(5, 1, 16, 8, 2);
+        Stream<Integer> stream = Stream.of();
         Comparator<Integer> order = Comparator.comparing(Integer::intValue);
         BiConsumer<Integer, Integer> minMaxConsumer = (min, max) -> {
             System.out.println(min);
